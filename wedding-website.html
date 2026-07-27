@@ -1,0 +1,1657 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loïc et Jeanne — Célébration de Mariage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #d40000; /* Rouge Accent */
+        --primary-dark: #a61e1e; /* Rouge plus sombre au survol */
+        --primary-light: #fff5f5; /* Teinte rouge très claire */
+        --bg-main: #ffffff; /* Fond blanc pur */
+        --card-bg: #ffffff;
+        --text-main: #1a1a1a; /* Noir charbon */
+        --text-muted: #555555; /* Gris foncé */
+        --border-color: #f1f1f1;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Cormorant Garamond", sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      .serif-font {
+        font-family: "Garamond", serif;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* --- Décorations Coin Floral & Séparateurs --- */
+      .corner-deco {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        pointer-events: none;
+        z-index: 5;
+        opacity: 0.9;
+      }
+
+      .corner-tl {
+        top: 0px;
+        left: 6px;
+      }
+      .corner-tr {
+        top: 0px;
+        right: 6px;
+      }
+      .corner-bl {
+        bottom: 0px;
+        left: 6px;
+      }
+      .corner-br {
+        bottom: 0px;
+        right: 6px;
+      }
+
+      /* Coins pour le Hero */
+      .hero .corner-deco {
+        width: 70px;
+        height: 70px;
+        top: 12px;
+        left: 12px;
+      }
+      .hero .corner-tr {
+        top: 12px;
+        right: 12px;
+        left: auto;
+      }
+      .hero .corner-bl {
+        bottom: 12px;
+        left: 12px;
+        top: auto;
+      }
+      .hero .corner-br {
+        bottom: 12px;
+        right: 12px;
+        top: auto;
+        left: auto;
+      }
+
+      /* Coins PLUS GRANDS uniquement pour le Photo Box */
+      .photos-box .corner-deco {
+        width: 95px;
+        height: 95px;
+      }
+
+      /* Conteneur pour afficher les deux séparateurs côte à côte */
+      .divider-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 10px auto;
+      }
+
+      .divider-deco {
+        display: block;
+        max-width: 110px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      /* --- En-tête / Navigation --- */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        border-bottom: 1px solid var(--border-color);
+        padding: 18px 0;
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--text-muted);
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .nav-logo-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .nav-logo-img {
+        height: 50px;
+        width: auto;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      /* --- Section d'accueil (Hero) --- */
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 80px 20px 20px;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.92)),
+          url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80")
+            center/cover no-repeat;
+      }
+
+      .hero h3 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .hero h1 {
+        font-size: 5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #111111;
+        line-height: 1.05;
+      }
+
+      .hero p.date {
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        color: var(--text-muted);
+        margin-bottom: 35px;
+        text-transform: uppercase;
+      }
+
+      /* Compte à rebours Responsive */
+      .countdown {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+        justify-content: center;
+        max-width: 100%;
+      }
+
+      .count-box {
+        background: var(--card-bg);
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(201, 42, 42, 0.08);
+        min-width: 70px;
+        border: 1px solid #f8e1e1;
+        text-align: center;
+      }
+
+      .count-box .num {
+        font-family: "Garamond", serif;
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--primary);
+        line-height: 1;
+      }
+
+      .count-box .label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--text-muted);
+        margin-top: 5px;
+      }
+
+      /* --- Style des sections --- */
+      section {
+        padding: 80px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-header h2 {
+        font-size: 3.2rem;
+        color: #111111;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      .section-header p {
+        color: var(--primary);
+        font-style: italic;
+        font-family: "Garamond", serif;
+        font-size: 1.3rem;
+      }
+
+      /* --- Animations au défilement (Re-triggering) --- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: none;
+        will-change: opacity, transform;
+      }
+
+      .reveal.reveal-left {
+        transform: translateX(-50px);
+      }
+
+      .reveal.reveal-right {
+        transform: translateX(50px);
+      }
+
+      .reveal.reveal-zoom {
+        transform: scale(0.9);
+      }
+
+      .reveal.active {
+        opacity: 1 !important;
+        transform: translateY(0) translateX(0) scale(1) !important;
+        transition:
+          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .reveal-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .reveal-delay-3 {
+        transition-delay: 0.3s;
+      }
+      .reveal-delay-4 {
+        transition-delay: 0.4s;
+      }
+
+      /* --- Détails & Lieu --- */
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+      }
+
+      .detail-card {
+        background: var(--card-bg);
+        padding: 35px 25px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        border: 1px solid #f3f3f3;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          opacity 0.8s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .detail-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 15px 35px rgba(201, 42, 42, 0.1);
+      }
+
+      .detail-card h3 {
+        font-size: 1.8rem;
+        color: var(--text-main);
+        margin-bottom: 15px;
+      }
+
+      .detail-card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+      }
+
+      .map-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 15px;
+        padding: 8px 16px;
+        background-color: var(--primary-light);
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+
+      .map-button:hover {
+        background-color: var(--primary);
+        color: #ffffff;
+      }
+
+      /* --- Programme (Timeline) --- */
+      .timeline {
+        position: relative;
+        max-width: 750px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #f0f0f0;
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 45px;
+        width: 50%;
+        padding: 0 35px;
+        box-sizing: border-box;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+        text-align: right;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+        text-align: left;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        top: 5px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--primary);
+        border: 3px solid #ffffff;
+        box-shadow: 0 0 0 2px var(--primary);
+        z-index: 10;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-dot {
+        right: -10px;
+      }
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: -10px;
+      }
+
+      .timeline-content {
+        background: var(--card-bg);
+        padding: 25px;
+        border-radius: 10px;
+        border: 1px solid #f0f0f0;
+        box-shadow: var(--shadow);
+        transition: border-color 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        border-color: #f8d7d7;
+      }
+
+      .timeline-time {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+      }
+
+      .timeline-title {
+        font-size: 1.5rem;
+        color: #111111;
+        margin-bottom: 8px;
+      }
+
+      .timeline-desc {
+        font-size: 0.92rem;
+        color: var(--text-muted);
+      }
+
+      /* --- Section Photos & Polaroïds --- */
+      .photos-box {
+        position: relative;
+        background: var(--card-bg);
+        padding: 50px 40px;
+        border-radius: 16px;
+        border: 1px solid #f0f0f0;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .hanger-display {
+        position: relative;
+        max-width: 800px;
+        margin: 40px auto 30px;
+        padding-top: 40px;
+      }
+
+      .hanging-lines-container {
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        padding-top: 10px;
+      }
+
+      .hanging-line {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hanging-line::before {
+        content: "";
+        width: 2px;
+        background: #ccc;
+        position: absolute;
+        top: -30px;
+        bottom: 0;
+        z-index: 1;
+      }
+
+      .polaroid-hanging {
+        position: relative;
+        z-index: 2;
+        background: #fff;
+        padding: 12px 12px 30px 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        width: 200px;
+        margin-top: 25px;
+        border: 1px solid #eaeaea;
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+
+      .polaroid-hanging:hover {
+        transform: scale(1.08) rotate(0deg) !important;
+        z-index: 10;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .wooden-clip {
+        width: 12px;
+        height: 28px;
+        background: #d4a373;
+        border-radius: 2px;
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        border: 1px solid #b58352;
+      }
+
+      .polaroid-hanging img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      .polaroid-hanging p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--text-main);
+        font-weight: 600;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--primary);
+        color: #fff;
+        padding: 15px 32px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(201, 42, 42, 0.25);
+      }
+
+      .btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(201, 42, 42, 0.35);
+      }
+
+      /* --- Section Voyage de Noces & Cartes Postales --- */
+      .honeymoon-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      .honeymoon-info {
+        background: var(--card-bg);
+        padding: 35px;
+        border-radius: 12px;
+        border: 1px solid #f0f0f0;
+        box-shadow: var(--shadow);
+      }
+
+      .destination-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .dest-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 15px;
+        border: 1px solid #f0f0f0;
+        border-radius: 8px;
+        background: #fafafa;
+        transition: var(--transition);
+      }
+
+      .dest-card:hover {
+        border-color: #f8d7d7;
+        background: var(--primary-light);
+      }
+
+      .dest-card img {
+        width: 65px;
+        height: 65px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--text-main);
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        background: #fff;
+        transition: var(--transition);
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(201, 42, 42, 0.1);
+      }
+
+      .postcard-form {
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid #f0f0f0;
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+
+      .postcard-preview {
+        display: none;
+        background: #fff;
+        padding: 30px;
+        border: 2px dashed var(--primary);
+        border-radius: 12px;
+        margin-top: 20px;
+        position: relative;
+        background: var(--primary-light);
+      }
+
+      .stamp {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 55px;
+        height: 65px;
+        border: 2px dashed var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+        transform: rotate(6deg);
+        font-weight: 600;
+      }
+
+      /* --- Section Infos Pratiques (Format compact) --- */
+      .info-box {
+        position: relative;
+        background: var(--card-bg);
+        padding: 40px 30px;
+        border-radius: 16px;
+        border: 1px solid #f0f0f0;
+        box-shadow: var(--shadow);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        text-align: left;
+      }
+
+      .info-icon {
+        font-size: 1.8rem;
+        line-height: 1;
+        background: var(--primary-light);
+        padding: 12px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .info-text h4 {
+        font-size: 1.3rem;
+        color: var(--text-main);
+        margin-bottom: 4px;
+        font-family: "Garamond", serif;
+      }
+
+      .info-text p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .info-text a {
+        color: var(--primary);
+        font-weight: 500;
+      }
+
+      .info-text a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 50px 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        background: #fafafa;
+        border-top: 1px solid var(--border-color);
+      }
+
+      /* Adaptations Mobiles (Responsive) */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 3.2rem;
+        }
+
+        .countdown {
+          gap: 8px;
+        }
+        .count-box {
+          padding: 10px 10px;
+          min-width: 60px;
+        }
+        .count-box .num {
+          font-size: 1.6rem;
+        }
+        .count-box .label {
+          font-size: 0.6rem;
+          letter-spacing: 1px;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+        .timeline-item {
+          width: 100%;
+          padding-left: 50px;
+          padding-right: 0;
+          text-align: left !important;
+        }
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+        .timeline-item:nth-child(odd) .timeline-dot,
+        .timeline-item:nth-child(even) .timeline-dot {
+          left: 13px;
+          right: auto;
+        }
+        .honeymoon-container {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hanging-lines-container {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+        .hanging-line::before {
+          display: none;
+        }
+
+        .reveal.reveal-left,
+        .reveal.reveal-right {
+          transform: translateY(25px);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .info-item {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .countdown {
+          gap: 6px;
+        }
+        .count-box {
+          padding: 8px 6px;
+          min-width: 52px;
+        }
+        .count-box .num {
+          font-size: 1.3rem;
+        }
+        .count-box .label {
+          font-size: 0.55rem;
+          letter-spacing: 0.5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="container">
+        <a href="#" class="nav-logo-link">
+          <img src="resources/LetJ.png" alt="L & J Logo" class="nav-logo-img" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="#details">Détails</a></li>
+          <li><a href="#timeline">Programme</a></li>
+          <li><a href="#lendemain">Le Lendemain</a></li>
+          <li><a href="#photos">Photos</a></li>
+          <li><a href="#honeymoon">Cartes Postales</a></li>
+          <li><a href="#infos-pratiques">Infos Pratiques</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Section Accueil -->
+    <header class="hero">
+      <h3>Nous nous marions</h3>
+      <h1>Loïc & Jeanne</h1>
+
+      <div class="divider-container">
+        <img src="resources/divider1.png" alt="" class="divider-deco" />
+        <img src="resources/divider2.png" alt="" class="divider-deco" />
+      </div>
+
+      <p class="date">Samedi 22 mai 2027</p>
+
+      <div class="countdown" id="countdown">
+        <div class="count-box">
+          <div class="num" id="days">00</div>
+          <div class="label">Jours</div>
+        </div>
+        <div class="count-box">
+          <div class="num" id="hours">00</div>
+          <div class="label">Heures</div>
+        </div>
+        <div class="count-box">
+          <div class="num" id="minutes">00</div>
+          <div class="label">Min</div>
+        </div>
+        <div class="count-box">
+          <div class="num" id="seconds">00</div>
+          <div class="label">Sec</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section Détails -->
+    <section id="details">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>La Célébration</h2>
+          <div class="divider-container">
+            <img src="resources/divider1.png" alt="" class="divider-deco" />
+            <img src="resources/divider2.png" alt="" class="divider-deco" />
+          </div>
+          <p>Tout ce que vous devez savoir sur notre grand jour</p>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-card reveal reveal-delay-1">
+            <img
+              src="resources/corner2.png"
+              alt=""
+              class="corner-deco corner-tl"
+            />
+            <div>
+              <h3>Quand</h3>
+              <p><strong>Samedi 22 mai 2027</strong></p>
+              <p>Début de la cérémonie à 15h</p>
+              <p>Accueil des invités dès 14h00</p>
+            </div>
+            <img
+              src="resources/corner3.png"
+              alt=""
+              class="corner-deco corner-br"
+            />
+          </div>
+
+          <div class="detail-card reveal reveal-delay-2">
+            <img
+              src="resources/corner2.png"
+              alt=""
+              class="corner-deco corner-tl"
+            />
+            <div>
+              <h3>Où</h3>
+              <p><strong>Domaine du Moulin de Jeanne</strong></p>
+              <p>Chemin du Moulin de Nilly</p>
+              <p>39570 Courlaoux, France</p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=Domaine+du+Moulin+de+Jeanne,+Chemin+du+Moulin+de+Nilly,+39570+Courlaoux"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="map-button"
+            >
+              📍 Voir sur Google Maps
+            </a>
+            <img
+              src="resources/corner3.png"
+              alt=""
+              class="corner-deco corner-br"
+            />
+          </div>
+
+          <div class="detail-card reveal reveal-delay-3">
+            <img
+              src="resources/corner2.png"
+              alt=""
+              class="corner-deco corner-tl"
+            />
+            <div>
+              <h3>Chambres</h3>
+              <p><strong>Arrivée & Logement</strong></p>
+              <p>Pour les invités disposant d'une chambre sur place :</p>
+              <p>
+                Elles sont disponibles dès le
+                <strong>vendredi 21 mai à 19h00</strong>.
+              </p>
+            </div>
+            <img
+              src="resources/corner3.png"
+              alt=""
+              class="corner-deco corner-br"
+            />
+          </div>
+
+          <div class="detail-card reveal reveal-delay-4">
+            <img
+              src="resources/corner2.png"
+              alt=""
+              class="corner-deco corner-tl"
+            />
+            <div>
+              <h3>Accès & Parking</h3>
+              <p><strong>Arrivée</strong></p>
+              <p>Parking sur place à l'entrée.</p>
+              <p>Possibilité de se parquer dans le champ adjacent si besoin.</p>
+            </div>
+            <img
+              src="resources/corner3.png"
+              alt=""
+              class="corner-deco corner-br"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Programme -->
+    <section id="timeline">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Programme de la Journée</h2>
+          <div class="divider-container">
+            <img src="resources/divider1.png" alt="" class="divider-deco" />
+            <img src="resources/divider2.png" alt="" class="divider-deco" />
+          </div>
+          <p>Découvrez le déroulement de ce jour spécial</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal reveal-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-time">14h30</div>
+              <div class="timeline-title">Arrivée des invités</div>
+              <div class="timeline-desc">
+                Boissons de bienvenue et rafraîchissements servis dans la cour.
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal reveal-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-time">15h00</div>
+              <div class="timeline-title">La cérémonie</div>
+              <div class="timeline-desc">Discours et échange des vœux</div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal reveal-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-time">16h00</div>
+              <div class="timeline-title">Cocktail & Photos</div>
+              <div class="timeline-desc">
+                Canapés, champagne, musique et séances photos en famille
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal reveal-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-time">19h00</div>
+              <div class="timeline-title">Dîner & Discours</div>
+              <div class="timeline-desc">
+                Souper à trois plats parsemé d'animation et de discours
+                chaleureux
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal reveal-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-time">22h00 – Minuit</div>
+              <div class="timeline-title">Soirée & Danse</div>
+              <div class="timeline-desc">
+                Première danse, cocktails et festivités
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Le Lendemain -->
+    <section id="lendemain">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Le Lendemain</h2>
+          <div class="divider-container">
+            <img src="resources/divider1.png" alt="" class="divider-deco" />
+            <img src="resources/divider2.png" alt="" class="divider-deco" />
+          </div>
+          <p>Prolongeons les festivités ensemble</p>
+        </div>
+
+        <div
+          class="details-grid"
+          style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"
+        >
+          <div class="detail-card reveal reveal-delay-1">
+            <img
+              src="resources/corner2.png"
+              alt=""
+              class="corner-deco corner-tl"
+            />
+            <div>
+              <h3>Déjeuner</h3>
+              <p><strong>Dimanche 23 Mai 2027 — De 9h00 à 11h00</strong></p>
+              <p>
+                Rejoignez-nous autour d'un déjeuner gourmand et d'un bon café
+                chaud pour se remémorer les plus beaux moments de la veille.
+              </p>
+            </div>
+            <img
+              src="resources/corner3.png"
+              alt=""
+              class="corner-deco corner-br"
+            />
+          </div>
+
+          <div class="detail-card reveal reveal-delay-2">
+            <img
+              src="resources/corner2.png"
+              alt=""
+              class="corner-deco corner-tl"
+            />
+            <div>
+              <h3>Piscine & Détente</h3>
+              <p><strong>Toute la journée</strong></p>
+              <p>
+                La piscine sera accessible de 9h à 17h. Pensez à prendre votre
+                maillot de bain et votre serviette pour vous rafraîchir !
+              </p>
+            </div>
+            <img
+              src="resources/corner3.png"
+              alt=""
+              class="corner-deco corner-br"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Photos -->
+    <section id="photos">
+      <div class="container">
+        <div class="section-header reveal" style="margin-bottom: 20px">
+          <h2>Photos</h2>
+          <div class="divider-container">
+            <img src="resources/divider1.png" alt="" class="divider-deco" />
+            <img src="resources/divider2.png" alt="" class="divider-deco" />
+          </div>
+          <p>Aidez-nous à immortaliser chaque précieux instant !</p>
+        </div>
+
+        <div class="photos-box reveal reveal-zoom">
+          <img
+            src="resources/corner2.png"
+            alt=""
+            class="corner-deco corner-tl"
+          />
+          <img
+            src="resources/corner1.png"
+            alt=""
+            class="corner-deco corner-tr"
+          />
+
+          <h3>Album photo partagé</h3>
+          <p
+            style="
+              max-width: 600px;
+              margin: 10px auto 20px;
+              color: var(--text-muted);
+            "
+          >
+            Nous aimerions voir cette journée à travers vos yeux. Cliquez sur le
+            lien ci-dessous pour voir les photos ou ajouter vos propres clichés
+            directement sur notre album Google Photos partagé.
+          </p>
+
+          <div class="hanger-display">
+            <div class="hanging-lines-container">
+              <div class="hanging-line reveal reveal-delay-1">
+                <div class="polaroid-hanging" style="transform: rotate(-3deg)">
+                  <div class="wooden-clip"></div>
+                  <img src="resources/20240523_120405.jpg" alt="Les Vœux" />
+                  <p>Les Vœux</p>
+                </div>
+              </div>
+
+              <div class="hanging-line reveal reveal-delay-2">
+                <div
+                  class="polaroid-hanging"
+                  style="transform: rotate(2deg); margin-top: 40px"
+                >
+                  <div class="wooden-clip"></div>
+                  <img
+                    src="resources/MariageLenaAntoine338.jpg"
+                    alt="Cocktail"
+                  />
+                  <p>Le Cocktail</p>
+                </div>
+              </div>
+
+              <div class="hanging-line reveal reveal-delay-3">
+                <div class="polaroid-hanging" style="transform: rotate(-2deg)">
+                  <div class="wooden-clip"></div>
+                  <img
+                    src="resources/20240729_195009.jpg"
+                    alt="Première Danse"
+                  />
+                  <p>Première Danse</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="https://photos.app.goo.gl/YourSharedAlbumLinkHere"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn"
+            style="margin-top: 20px"
+          >
+            📸 Ouvrir l'album partagé Google Photos
+          </a>
+
+          <img
+            src="resources/corner4.png"
+            alt=""
+            class="corner-deco corner-bl"
+          />
+          <img
+            src="resources/corner3.png"
+            alt=""
+            class="corner-deco corner-br"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Voyage de Noces & Cartes Postales -->
+    <section id="honeymoon">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Voyage de Noces & Cartes Postales</h2>
+          <div class="divider-container">
+            <img src="resources/divider1.png" alt="" class="divider-deco" />
+            <img src="resources/divider2.png" alt="" class="divider-deco" />
+          </div>
+          <p>Laissez-nous vous envoyer un souvenir de nos voyages !</p>
+        </div>
+
+        <div class="honeymoon-container">
+          <div class="honeymoon-info reveal reveal-left">
+            <h3>Lune de miel en Norvège</h3>
+            <p style="color: var(--text-muted); margin-top: 10px">
+              Après le mariage, nous partons à l'aventure ! Inscrivez votre
+              adresse postale ci-dessous et nous vous enverrons une carte
+              postale manuscrite directement depuis l'une de nos escales.
+            </p>
+
+            <div class="destination-cards">
+              <div class="dest-card">
+                <img
+                  src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=200&q=80"
+                  alt="Fjords"
+                />
+                <div>
+                  <strong>Norvège</strong>
+                  <p style="font-size: 0.8rem; color: var(--text-muted)">
+                    Fjords & Nature
+                  </p>
+                </div>
+              </div>
+
+              <div class="dest-card">
+                <img
+                  src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=200&q=80"
+                  alt="Oslo & Bergen"
+                />
+                <div>
+                  <strong>Oslo & Bergen</strong>
+                  <p style="font-size: 0.8rem; color: var(--text-muted)">
+                    Villes & Vues Magnifiques
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulaire interactif -->
+          <div class="postcard-form reveal reveal-right">
+            <h3>Recevoir une Carte Postale</h3>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: var(--text-muted);
+                margin-bottom: 20px;
+              "
+            >
+              Remplissez votre adresse pour recevoir une petite pensée au fil de
+              notre voyage.
+            </p>
+
+            <form id="postcardForm">
+              <div class="form-group">
+                <label for="fullName">Votre Nom complet</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  required
+                  placeholder="ex. Jeanne Dupont"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="destination">Choisissez la Destination</label>
+                <select id="destination" required>
+                  <option value="">-- Sélectionnez un lieu --</option>
+                  <option value="Fjords de Norvège">
+                    Fjords de Norvège 🇳🇴
+                  </option>
+                  <option value="Oslo & Bergen">Oslo & Bergen 🏔️</option>
+                  <option value="Destination Surprise !">
+                    Destination Surprise ! ✈️
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Adresse Postale</label>
+                <textarea
+                  id="address"
+                  rows="3"
+                  required
+                  placeholder="Rue, Numéro, Code Postal, Ville, Pays"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="message"
+                  >Un mot pour Loïc & Jeanne (Optionnel)</label
+                >
+                <textarea
+                  id="message"
+                  rows="2"
+                  placeholder="Laissez-nous un petit mot..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn" style="width: 100%">
+                S'inscrire pour la carte
+              </button>
+            </form>
+
+            <div id="postcardPreview" class="postcard-preview">
+              <div class="stamp">TIMBRE<br />POSTAL</div>
+              <h4
+                style="
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
+                  font-size: 1.6rem;
+                  color: var(--primary);
+                  margin-bottom: 10px;
+                "
+              >
+                Carte confirmée ! ✉️
+              </h4>
+              <p
+                style="
+                  font-size: 0.9rem;
+                  color: var(--text-main);
+                  margin-bottom: 8px;
+                "
+              >
+                <strong>Pour :</strong> <span id="resName"></span>
+              </p>
+              <p
+                style="
+                  font-size: 0.9rem;
+                  color: var(--text-main);
+                  margin-bottom: 8px;
+                "
+              >
+                <strong>Destination sélectionnée :</strong>
+                <span id="resDest"></span>
+              </p>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-muted);
+                  font-style: italic;
+                  margin-top: 15px;
+                  border-top: 1px dashed #e0e0e0;
+                  padding-top: 10px;
+                "
+              >
+                "Merci beaucoup ! Nous avons bien enregistré vos coordonnées et
+                nous avons hâte de vous écrire pendant notre voyage !"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Infos Pratiques & Contact -->
+    <section id="infos-pratiques">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Infos Pratiques</h2>
+          <div class="divider-container">
+            <img src="resources/divider1.png" alt="" class="divider-deco" />
+            <img src="resources/divider2.png" alt="" class="divider-deco" />
+          </div>
+          <p>Quelques détails pour bien préparer votre venue</p>
+        </div>
+
+        <div class="info-box reveal reveal-zoom">
+          <img
+            src="resources/corner2.png"
+            alt=""
+            class="corner-deco corner-tl"
+          />
+          <img
+            src="resources/corner1.png"
+            alt=""
+            class="corner-deco corner-tr"
+          />
+
+          <div class="info-list">
+            <!-- Chaussures -->
+            <!-- Tenue & Chaussures -->
+            <div class="info-item">
+              <div class="info-icon">👔</div>
+              <div class="info-text">
+                <h4>Dress code : Tenue de fête</h4>
+                <p>
+                  Sortez vos plus belles robes, chemises et tenues élégantes
+                  pour célébrer avec nous !
+                </p>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: #666">
+                  <em>Note pratique :</em> La cérémonie se déroule sur l'herbe
+                  et les allées sont en graviers/pierres. Évitez les talons
+                  aiguilles et privilégiez les talons larges, compensés ou
+                  chaussures plates.
+                </p>
+              </div>
+            </div>
+
+            <!-- Animations & Discours -->
+            <div class="info-item">
+              <div class="info-icon">🎤</div>
+              <div class="info-text">
+                <h4>Animations & Discours</h4>
+                <p>
+                  Vous souhaitez préparer une surprise ou un mot doux ?
+                  Contactez nos témoins :<br />
+                  <strong>Charlotte •</strong>
+                  <a href="tel:+41787420827">+41 78742 08 27</a><br />
+                  <strong>Tanguy •</strong>
+                  <a href="tel:+33600000000">+33 6 09 44 13 69</a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Allergies -->
+            <div class="info-item">
+              <div class="info-icon">🍽️</div>
+              <div class="info-text">
+                <h4>Allergies & Régimes</h4>
+                <p>
+                  Des intolérances ou un régime particulier ? Signalez-le nous
+                  au plus vite afin d'adapter le menu du traiteur.
+                </p>
+              </div>
+            </div>
+
+            <!-- Contacts Directs -->
+            <div class="info-item">
+              <div class="info-icon">💌</div>
+              <div class="info-text">
+                <h4>Nous Contacter</h4>
+                <p>
+                  <strong>Email •</strong>
+                  <a href="mailto:loic.jeanne.vdb@gmail.com"
+                    >loic.jeanne.vdb@gmail.com</a
+                  ><br />
+                  <strong>Jeanne •</strong>
+                  <a href="tel:+41787150387">+41 78 715 03 87</a><br />
+                  <strong>Loïc •</strong>
+                  <a href="tel:+41782096575">+41 78 209 65 75</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <img
+            src="resources/corner4.png"
+            alt=""
+            class="corner-deco corner-bl"
+          />
+          <img
+            src="resources/corner3.png"
+            alt=""
+            class="corner-deco corner-br"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+      <div class="container">
+        <p
+          class="serif-font"
+          style="
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+            font-weight: 600;
+          "
+        >
+          Loïc & Jeanne
+        </p>
+        <p>Août 2026 • Fribourg, Suisse</p>
+      </div>
+    </footer>
+
+    <!-- Logique JavaScript -->
+    <script>
+      // Scroll Reveal Logic
+      document.addEventListener("DOMContentLoaded", function () {
+        const reveals = document.querySelectorAll(".reveal");
+
+        if (!("IntersectionObserver" in window)) {
+          reveals.forEach((el) => el.classList.add("active"));
+          return;
+        }
+
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              } else {
+                entry.target.classList.remove("active");
+              }
+            });
+          },
+          {
+            root: null,
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px",
+          },
+        );
+
+        reveals.forEach((element) => {
+          revealObserver.observe(element);
+        });
+      });
+
+      // Compte à Rebours
+      const weddingDate = new Date("May 22, 2027 15:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+          document.getElementById("countdown").innerHTML =
+            "<h3 style='color: var(--primary);'>Le grand jour est arrivé !</h3>";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = String(days).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("hours").innerText = String(hours).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("minutes").innerText = String(minutes).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("seconds").innerText = String(seconds).padStart(
+          2,
+          "0",
+        );
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Formulaire Carte Postale (Envoi d'email via FormSubmit)
+      document
+        .getElementById("postcardForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const form = this;
+          const submitBtn = form.querySelector('button[type="submit"]');
+
+          const name = document.getElementById("fullName").value;
+          const destination = document.getElementById("destination").value;
+          const address = document.getElementById("address").value;
+          const message = document.getElementById("message").value;
+
+          submitBtn.innerText = "Envoi en cours...";
+          submitBtn.disabled = true;
+
+          const targetEmail = "VOTRE_EMAIL@EXEMPLE.COM";
+
+          fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              "Nom complet": name,
+              "Destination souhaitée": destination,
+              "Adresse postale": address,
+              "Message pour les mariés": message,
+              _subject: `💌 Nouvelle carte postale demandée par ${name}`,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById("resName").innerText = name;
+              document.getElementById("resDest").innerText = destination;
+
+              form.style.display = "none";
+              document.getElementById("postcardPreview").style.display =
+                "block";
+            })
+            .catch((error) => {
+              console.error("Erreur d'envoi:", error);
+              alert(
+                "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+              );
+              submitBtn.innerText = "S'inscrire pour la carte";
+              submitBtn.disabled = false;
+            });
+        });
+    </script>
+  </body>
+</html>
