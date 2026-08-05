@@ -1,4 +1,9 @@
-MIT License
+This repository contains two kinds of content, licensed separately:
+
+1. Source code (HTML, CSS, JavaScript, and other files needed to build/run the site)
+2. Photos and images (including but not limited to everything under `resources/`, such as personal photos, illustrations, and graphical assets)
+
+## 1. Source code — MIT License
 
 Copyright (c) 2026 Jeanne Fleury
 
@@ -19,3 +24,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+The above license applies only to the source code and explicitly excludes
+the photos and images described below.
+
+## 2. Photos and images — All rights reserved
+
+Copyright (c) 2026 Jeanne Fleury. All rights reserved.
+
+The photos and images in this repository (including but not limited to
+everything under `resources/`) are NOT covered by the MIT License above.
+They may not be copied, reproduced, distributed, published, or reused in
+any form without prior written permission from the copyright holder.
