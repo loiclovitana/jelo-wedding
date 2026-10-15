@@ -48,8 +48,7 @@
       }
 
       a {
-        text-decoration: none;
-        color: inherit;
+        color: var(--primary-dark)
       }
 
       .container {
@@ -371,6 +370,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        text-decoration: none;
         gap: 6px;
         margin-top: 15px;
         padding: 8px 16px;
@@ -590,124 +590,79 @@
         box-shadow: 0 8px 25px rgba(201, 42, 42, 0.35);
       }
 
-      /* --- Section Voyage de Noces & Cartes Postales --- */
-      .honeymoon-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: start;
+      /* --- Section Liste de mariage --- */
+      .wedding-gift {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .wedding-gift > p {
+        max-width: 600px;
+        margin: 14px auto;
+        color: var(--text-muted);
+        font-size: 1.1rem;
       }
 
-      .honeymoon-info {
-        background: var(--card-bg);
-        padding: 35px;
-        border-radius: 12px;
-        border: 1px solid #f0f0f0;
-        box-shadow: var(--shadow);
+      .wedding-gift h4 {
+        margin-top: 28px;
+        font-size: 1.35rem;
       }
 
-      .destination-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 25px;
+      .gift-payment-details {
+        margin: 24px auto;
+        max-width: 600px;
       }
 
-      .dest-card {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 12px 15px;
-        border: 1px solid #f0f0f0;
-        border-radius: 8px;
-        background: #fafafa;
-        transition: var(--transition);
-      }
-
-      .dest-card:hover {
-        border-color: #f8d7d7;
-        background: var(--primary-light);
-      }
-
-      .dest-card img {
-        width: 65px;
-        height: 65px;
-        border-radius: 8px;
-        object-fit: cover;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-      }
-
-      .form-group label {
-        display: block;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        color: var(--text-main);
-        margin-bottom: 8px;
+      .gift-payment-details summary {
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 14px 24px;
+        border-radius: 30px;
+        background: var(--primary);
+        color: #fff;
+        font-size: 1.05rem;
         font-weight: 600;
+        cursor: pointer;
       }
 
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        padding: 12px 15px;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        font-family: inherit;
+      .gift-payment-details summary:hover {
+        background: var(--primary-dark);
+      }
+
+      .gift-payment-details summary:focus-visible {
+        outline: 2px solid var(--primary-dark);
+        outline-offset: 4px;
+      }
+
+      .gift-example-note {
+        margin: 20px 0;
+        color: var(--text-muted);
         font-size: 0.95rem;
-        background: #fff;
-        transition: var(--transition);
       }
 
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(201, 42, 42, 0.1);
+      .gift-payment-methods {
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr);
+        gap: 16px 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+        text-align: left;
+        font-size: 1.05rem;
       }
 
-      .postcard-form {
-        background: var(--card-bg);
-        padding: 40px;
-        border-radius: 12px;
-        border: 1px solid #f0f0f0;
-        box-shadow: var(--shadow);
-        position: relative;
-      }
-
-      .postcard-preview {
-        display: none;
-        background: #fff;
-        padding: 30px;
-        border: 2px dashed var(--primary);
-        border-radius: 12px;
-        margin-top: 20px;
-        position: relative;
-        background: var(--primary-light);
-      }
-
-      .stamp {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 55px;
-        height: 65px;
-        border: 2px dashed var(--primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.65rem;
-        color: var(--primary);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        text-align: center;
-        transform: rotate(6deg);
+      .gift-payment-methods dt {
         font-weight: 600;
+      }
+
+      .gift-payment-methods dd {
+        color: var(--text-muted);
+        overflow-wrap: anywhere;
+      }
+
+      .wedding-gift .gift-thanks {
+        margin-bottom: 0;
+        color: var(--primary);
+        font-style: italic;
       }
 
       /* --- Section Infos Pratiques (Format compact) --- */
@@ -813,16 +768,28 @@
           left: 13px;
           right: auto;
         }
-        .honeymoon-container {
+        .wedding-gift {
+          padding: 45px 24px;
+        }
+        .gift-payment-methods {
           grid-template-columns: 1fr;
+          gap: 4px;
+        }
+        .gift-payment-methods dd + dt {
+          margin-top: 12px;
         }
         .nav-links {
           display: none;
         }
         .hanging-lines-container {
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
+          justify-content: center;
+        }
+        .hanging-line:not(:first-child) {
+          display: none;
+        }
+        .hanger-display {
+          margin: 20px auto 30px;
+          padding-top: 0;
         }
         .hanging-line::before {
           display: none;
@@ -870,7 +837,7 @@
           <li><a href="#infos-pratiques">Infos Pratiques</a></li>
           <li><a href="#timeline">Programme</a></li>
           <!--<li><a href="#lendemain">Le Lendemain</a></li>-->
-          <li><a href="#honeymoon">Cartes Postales</a></li>
+          <li><a href="#honeymoon">Liste de mariage</a></li>
           <li><a href="#photos">Photos</a></li>
           
           
@@ -1176,167 +1143,56 @@
 
     
 
-    <!-- Section Voyage de Noces & Cartes Postales -->
-    <section id="honeymoon">
+    <!-- Section Liste de mariage -->
+    <section id="honeymoon" aria-labelledby="wedding-list-title">
       <div class="container">
         <div class="section-header reveal">
-          <h2>Voyage de Noces & Cartes Postales</h2>
+          <h2 id="wedding-list-title">Notre liste de mariage</h2>
           <div class="divider-container">
             <img src="resources/divider1.png" alt="" class="divider-deco" />
             <img src="resources/divider2.png" alt="" class="divider-deco" />
           </div>
-          <p>Laissez-nous vous envoyer un souvenir de nos voyages !</p>
+          <p>Cap sur le nord de la Norvège</p>
         </div>
 
-        <div class="honeymoon-container">
-          <div class="honeymoon-info reveal reveal-left">
-            <h3>Lune de miel en Norvège</h3>
-            <p style="color: var(--text-muted); margin-top: 10px">
-              Après le mariage, nous partons à l'aventure ! Inscrivez votre
-              adresse postale ci-dessous et nous vous enverrons une carte
-              postale manuscrite directement depuis l'une de nos escales.
-            </p>
+        <div class="photos-box wedding-gift reveal reveal-zoom">
+          <img src="resources/corner2.png" alt="" class="corner-deco corner-tl" />
+          <img src="resources/corner1.png" alt="" class="corner-deco corner-tr" />
+          <p>
+            Votre présence à nos côtés est déjà un merveilleux cadeau.
+            Si vous souhaitez nous gâter, nous serions heureux d'une
+            contribution à notre voyage de noces plutôt que de cadeaux matériels.
+          </p>
+          <p>
+            Vous pouvez participer ici, ou glisser un petit mot et/ou une
+            enveloppe dans la boîte prévue le jour du mariage.
+          </p>
 
-            <div class="destination-cards">
-              <div class="dest-card">
-                <img
-                  src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=200&q=80"
-                  alt="Fjords"
-                />
-                <div>
-                  <strong>Norvège</strong>
-                  <p style="font-size: 0.8rem; color: var(--text-muted)">
-                    Fjords & Nature
-                  </p>
-                </div>
-              </div>
+          <details class="gift-payment-details">
+            <summary>Contribuer à notre voyage</summary>
+            
+            <dl class="gift-payment-methods">
+              <dt>Virement bancaire</dt>
+              <dd>
+                Loïc Vandenberghe et Jeanne Fleury<br />
+                IBAN : CH750024324357180440L
+              </dd>
+              <dt>Revolut</dt>
+              <dd><a href="revolut.me/jeanne1u2g">@jeanne1u2g</a></dd>
+              <dt>TWINT</dt>
+              <dd>+41 78 209 65 75</dd>
+            </dl>
+          </details>
 
-              <div class="dest-card">
-                <img
-                  src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=200&q=80"
-                  alt="Oslo & Bergen"
-                />
-                <div>
-                  <strong>Oslo & Bergen</strong>
-                  <p style="font-size: 0.8rem; color: var(--text-muted)">
-                    Villes & Vues Magnifiques
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h4>Une petite pensée du Grand Nord</h4>
+          <p>
+            Le jour J, vous pourrez aussi choisir une étape de notre voyage: nous vous enverrons une carte
+            postale depuis cette escale !
+          </p>
 
-          <!-- Formulaire interactif -->
-          <div class="postcard-form reveal reveal-right">
-            <h3>Recevoir une Carte Postale</h3>
-            <p
-              style="
-                font-size: 0.85rem;
-                color: var(--text-muted);
-                margin-bottom: 20px;
-              "
-            >
-              Remplissez votre adresse pour recevoir une petite pensée au fil de
-              notre voyage.
-            </p>
-
-            <form id="postcardForm">
-              <div class="form-group">
-                <label for="fullName">Votre Nom complet</label>
-                <input
-                  type="text"
-                  id="fullName"
-                  required
-                  placeholder="ex. Jeanne Dupont"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="destination">Choisissez la Destination</label>
-                <select id="destination" required>
-                  <option value="">-- Sélectionnez un lieu --</option>
-                  <option value="Fjords de Norvège">
-                    Fjords de Norvège 🇳🇴
-                  </option>
-                  <option value="Oslo & Bergen">Oslo & Bergen 🏔️</option>
-                  <option value="Destination Surprise !">
-                    Destination Surprise ! ✈️
-                  </option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="address">Adresse Postale</label>
-                <textarea
-                  id="address"
-                  rows="3"
-                  required
-                  placeholder="Rue, Numéro, Code Postal, Ville, Pays"
-                ></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="message"
-                  >Un mot pour Loïc & Jeanne (Optionnel)</label
-                >
-                <textarea
-                  id="message"
-                  rows="2"
-                  placeholder="Laissez-nous un petit mot..."
-                ></textarea>
-              </div>
-
-              <button type="submit" class="btn" style="width: 100%">
-                S'inscrire pour la carte
-              </button>
-            </form>
-
-            <div id="postcardPreview" class="postcard-preview">
-              <div class="stamp">TIMBRE<br />POSTAL</div>
-              <h4
-                style="
-                  font-family: &quot;Cormorant Garamond&quot;, serif;
-                  font-size: 1.6rem;
-                  color: var(--primary);
-                  margin-bottom: 10px;
-                "
-              >
-                Carte confirmée ! ✉️
-              </h4>
-              <p
-                style="
-                  font-size: 0.9rem;
-                  color: var(--text-main);
-                  margin-bottom: 8px;
-                "
-              >
-                <strong>Pour :</strong> <span id="resName"></span>
-              </p>
-              <p
-                style="
-                  font-size: 0.9rem;
-                  color: var(--text-main);
-                  margin-bottom: 8px;
-                "
-              >
-                <strong>Destination sélectionnée :</strong>
-                <span id="resDest"></span>
-              </p>
-              <p
-                style="
-                  font-size: 0.85rem;
-                  color: var(--text-muted);
-                  font-style: italic;
-                  margin-top: 15px;
-                  border-top: 1px dashed #e0e0e0;
-                  padding-top: 10px;
-                "
-              >
-                "Merci beaucoup ! Nous avons bien enregistré vos coordonnées et
-                nous avons hâte de vous écrire pendant notre voyage !"
-              </p>
-            </div>
-          </div>
+          <p class="gift-thanks">Merci de faire partie de notre aventure. ♡</p>
+          <img src="resources/corner4.png" alt="" class="corner-deco corner-bl" />
+          <img src="resources/corner3.png" alt="" class="corner-deco corner-br" />
         </div>
       </div>
     </section>
@@ -1524,57 +1380,6 @@
       setInterval(updateCountdown, 1000);
       updateCountdown();
 
-      // Formulaire Carte Postale (Envoi d'email via FormSubmit)
-      document
-        .getElementById("postcardForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const form = this;
-          const submitBtn = form.querySelector('button[type="submit"]');
-
-          const name = document.getElementById("fullName").value;
-          const destination = document.getElementById("destination").value;
-          const address = document.getElementById("address").value;
-          const message = document.getElementById("message").value;
-
-          submitBtn.innerText = "Envoi en cours...";
-          submitBtn.disabled = true;
-
-          const targetEmail = "VOTRE_EMAIL@EXEMPLE.COM";
-
-          fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              "Nom complet": name,
-              "Destination souhaitée": destination,
-              "Adresse postale": address,
-              "Message pour les mariés": message,
-              _subject: `💌 Nouvelle carte postale demandée par ${name}`,
-            }),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              document.getElementById("resName").innerText = name;
-              document.getElementById("resDest").innerText = destination;
-
-              form.style.display = "none";
-              document.getElementById("postcardPreview").style.display =
-                "block";
-            })
-            .catch((error) => {
-              console.error("Erreur d'envoi:", error);
-              alert(
-                "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
-              );
-              submitBtn.innerText = "S'inscrire pour la carte";
-              submitBtn.disabled = false;
-            });
-        });
     </script>
   </body>
 </html>
