@@ -1299,6 +1299,20 @@
       </div>
     </footer>
 
+   <script type="module">
+    import { createCats } from 'https://loiclovitana.github.io/mashajs/lib/cats.js';
+
+    createCats({
+      size: 120,
+      minWidth: 300,
+      zIndex: 900,
+      cats: [
+        { sprite: "opale", personality: "chaser" },
+        { sprite: "masha", personality: "wanderer" }
+      ],
+    });
+  </script>
+
     <!-- Logique JavaScript -->
     <script>
       // Scroll Reveal Logic
